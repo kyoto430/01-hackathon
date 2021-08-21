@@ -4,8 +4,8 @@ export class SoundModule extends Module {
   #sound
   #container
   #sounds
-  constructor() {
-    super('sound', 'random-sound')
+  constructor(type, text) {
+    super(type, text)
     this.#container = document.createElement('div')
     this.#sound = document.createElement('audio')
     this.#sounds = [
@@ -21,7 +21,7 @@ export class SoundModule extends Module {
     return this.#sounds[randomIndex]
   }
 
-  renderSound() {
+  trigger() {
     this.#sound.src = this.randomSound()
     this.#sound.play()
     this.#container.append(this.#sound)
