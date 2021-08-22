@@ -9,19 +9,18 @@ export class ClicksModule extends Module {
     this.clicks = null
     this.clickOnTime = null
     this.timerId = null
-  }
-
-  clicksStart() {
-    this.clickOnTime = true
-    this.clicks = 0
-    document.body.addEventListener('click', (event) => {
+    this.container = document.body.addEventListener('click', (event) => {
       event.preventDefault()
-      const { target } = event
       if (this.clickOnTime) {
         this.clicks += 1
         console.log(this.clicks)
       }
     })
+  }
+
+  clicksStart() {
+    this.clickOnTime = true
+    this.clicks = 0
   }
 
   timer() {
