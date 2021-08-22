@@ -3,8 +3,8 @@ import { Module } from '../core/module'
 export class CustomMessageModule extends Module {
   #container
   #messages
-  constructor() {
-    super('message', 'custom-message')
+  constructor(type, text) {
+    super(type, text)
     this.#container = document.createElement('div')
     this.#container.className = 'message'
     this.#messages = ['Java Script', 'Hello World', 'Boooom', 'Try again']
@@ -15,16 +15,15 @@ export class CustomMessageModule extends Module {
     return this.#messages[randomIndex]
   }
 
-  renderMessage() {
+  trigger() {
     const message = document.createElement('p')
     message.textContent = this.randomMessage()
-    git
     this.#container.append(message)
 
     setInterval(() => {
       message.remove()
     }, 2000)
 
-    return this.#container
+    return document.body.prepend(this.#container)
   }
 }
