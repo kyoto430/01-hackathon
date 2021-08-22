@@ -4,13 +4,16 @@ export class ClicksModule extends Module {
   constructor(type, text) {
     super(type, text)
     this.title = document.createElement('h1')
-    this.time = 5
-    this.clicks = 0
-    this.clickOnTime = true
+    this.title.className = 'title-clicks'
+    this.time = null
+    this.clicks = null
+    this.clickOnTime = null
     this.timerId = null
   }
 
   clicksStart() {
+    this.clickOnTime = true
+    this.clicks = 0
     document.body.addEventListener('click', (event) => {
       event.preventDefault()
       const { target } = event
@@ -22,22 +25,28 @@ export class ClicksModule extends Module {
   }
 
   timer() {
-    this.timerId = setInterval(() => {
-      console.log('timer start')
-      console.log('time', this.time)
-      this.time === 0 ? this.finishTimer() : --this.time
-    }, 1000)
+    console.log('time', this.time)
+    this.time === 0 ? this.finishTimer() : --this.time
   }
 
   finishTimer() {
-    clearInterval(this.timerId)
     this.clickOnTime = false
+    clearInterval(this.timerId)
     this.title.textContent = `Кликов:${this.clicks}`
     document.body.prepend(this.title)
   }
 
+  interval() {
+    this.timerId = setInterval(() => {
+      this.timer()
+    }, 1000)
+    return this.timerId
+  }
+
   trigger() {
-    this.timer()
+    this.title.remove()
+    this.time = 5
+    this.interval()
     this.clicksStart()
   }
 }
