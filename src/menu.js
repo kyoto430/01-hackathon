@@ -9,10 +9,7 @@ export class ContextMenu extends Menu {
             this.open(event.clientY, event.clientX)
         }, false)
         this.el.addEventListener('click', (event) => {
-            console.log(event)
-            console.log(this.obj)
             const type = event.target.dataset.type
-            console.log(type)
             this.obj[type].trigger()
         })
     }
