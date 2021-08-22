@@ -50,3 +50,13 @@ body {
   color: #1b1a1a;
   font-weight: bold;
 }
+
+.title-clicks {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  color: #1b1a1a;
+  font-weight: bold;
+}
