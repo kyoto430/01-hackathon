@@ -15,3 +15,10 @@ export const randomMessages = [
   'Not yet',
   'Try again',
 ]
+
+export const randomSounds = [
+  'https://song.nazvonok.ru/song/debe/nezhnoe-sms-krasivoe-nezhnoe-sms.mp3',
+  'https://song.nazvonok.ru/song/dcfb/effekt-eha-interesnyy-zvuk-na-soobschenie.mp3',
+  'https://song.nazvonok.ru/song/7eea/kaplya-zvuk-padayuschey-kapli.mp3',
+  'https://song.nazvonok.ru/song/e11e/soyka-peresmeshnica.mp3',
+]
