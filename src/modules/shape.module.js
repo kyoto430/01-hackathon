@@ -18,7 +18,7 @@ export class ShapeModule extends Module {
         shape.style.width = randomWidth + 'vw'
         shape.style.height = randomHeight + 'vh'
         shape.style.borderRadius = '15px'
-        shape.style.background = randomColors[random(0, randomColors.length)]
+        shape.style.background = randomColors[random(0, randomColors.length - 1)]
         shape.style.position = 'absolute'
         shape.style.left = `${Math.random() * (100 - randomWidth)}vw`
         shape.style.top = `${Math.random() * (100 - randomHeight)}vh`
