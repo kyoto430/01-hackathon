@@ -33,15 +33,19 @@ export class TimerModule extends Module {
     }
   }
 
-  startGame() {
-    this.interval = setInterval(this.decreaseTime.bind(this), 1000);
-    this.setTime(this.time);
-  }
-
   trigger() {
     this.renderTimer();
     console.log(this.container);
-
+    console.log(this.timerForm);
+    document.querySelector("#button").addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("EVENT LISTENER");
+      this.time = Number(document.querySelector("#timeInput").value);
+      console.log(this.time);
+      this.interval = setInterval(this.decreaseTime.bind(this), 1000);
+      this.setTime(this.time);
+      return this.container;
+    });
     return this.container;
   }
 
@@ -50,20 +54,13 @@ export class TimerModule extends Module {
       this.timerForm.remove();
     }
 
-    this.timerForm.innerHTML = `<form>
+    this.timerForm.innerHTML = `<form id='form'>
         <h1>Задайте время</h1>
         <input type="text" id="timeInput">
-        <input type="submit" value="СТАРТ">
+        <input id="button" type="submit" value="СТАРТ">
         </form>`;
 
     this.container.append(this.timerForm, this.timeEl);
-    document.querySelector("body").append(this.container);
-
-    this.timerForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      this.time = Number(document.querySelector("#timeInput").value);
-      console.log(this.time);
-      this.startGame();
-    });
+    return document.querySelector("body").append(this.container);
   }
 }
