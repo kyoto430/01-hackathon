@@ -35,13 +35,9 @@ export class TimerModule extends Module {
 
   trigger() {
     this.renderTimer();
-    console.log(this.container);
-    console.log(this.timerForm);
     document.querySelector("#button").addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("EVENT LISTENER");
       this.time = Number(document.querySelector("#timeInput").value);
-      console.log(this.time);
       this.interval = setInterval(this.decreaseTime.bind(this), 1000);
       this.setTime(this.time);
       return this.container;
