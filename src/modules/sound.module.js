@@ -1,4 +1,5 @@
 import { Module } from '../core/module'
+import { random } from '../utils'
 
 export class SoundModule extends Module {
   #sound
@@ -23,8 +24,8 @@ export class SoundModule extends Module {
 
   trigger() {
     this.#sound.src = this.randomSound()
-    this.#sound.play()
+    this.#sound.autoplay = 'autoplay'
     this.#container.append(this.#sound)
-    return this.#container
+    return document.body.prepend(this.#container)
   }
 }
