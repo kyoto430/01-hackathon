@@ -17,7 +17,8 @@ export class ShapeModule extends Module {
         const randomHeight = random(5, 30)
         shape.style.width = randomWidth + 'vw'
         shape.style.height = randomHeight + 'vh'
-        shape.style.borderRadius = '15px'
+        shape.style.borderRadius = `${random(15, 60)}px`
+        shape.style.border = '2px solid gray'
         shape.style.background = randomColors[random(0, randomColors.length - 1)]
         shape.style.position = 'absolute'
         shape.style.left = `${Math.random() * (100 - randomWidth)}vw`
