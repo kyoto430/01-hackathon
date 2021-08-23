@@ -10,7 +10,6 @@ export class SoundModule extends Module {
     this.#container = document.createElement('div')
     this.#sound = document.createElement('audio')
   }
-
   trigger() {
     this.#sound.src = randomSounds[random(0, randomSounds.length - 1)]
     this.#sound.autoplay = 'autoplay'
